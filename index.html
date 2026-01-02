@@ -1,492 +1,208 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RoJs & Partners - Global Business Solutions</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #FFFCF9;
-            color: #2C2C2C;
-            line-height: 1.6;
-        }
-        
-        /* HERO SECTION */
-        .hero-section {
-            height: 100vh;
-            background: linear-gradient(135deg, rgba(197, 184, 168, 0.75) 0%, rgba(32, 139, 141, 0.75) 100%), 
-                        url('https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover;
-            background-attachment: fixed;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #FFFCF9;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-content {
-            max-width: 700px;
-            animation: fadeInUp 1s ease-out;
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .hero-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-            letter-spacing: -1px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-        
-        .hero-content p {
-            font-size: 1.4rem;
-            margin-bottom: 2rem;
-            font-weight: 300;
-            letter-spacing: 0.5px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: #FFFCF9;
-            color: #208B8D;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-        }
-        
-        /* NAVIGATION */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(197, 184, 168, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-        
-        nav a {
-            color: #FFFCF9;
-            text-decoration: none;
-            margin: 0 2rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-        
-        nav a:hover {
-            color: #FFFCF9;
-            transform: translateY(-2px);
-            border-bottom: 2px solid #FFFCF9;
-        }
-        
-        /* SECTIONS */
-        section {
-            padding: 6rem 2rem;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 4rem;
-            color: #208B8D;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-        }
-        
-        /* ABOUT SECTION */
-        .about-section {
-            background: linear-gradient(135deg, #F5F0E8 0%, #FFFCF9 100%);
-        }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        
-        .about-text h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: #208B8D;
-            font-weight: 600;
-        }
-        
-        .about-text p {
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
-            line-height: 1.8;
-            color: #555;
-        }
-        
-        .about-image {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        .about-image img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            display: block;
-        }
-        
-        /* DIVISIONS GRID */
-        .divisions-section {
-            background: #FFFCF9;
-        }
-        
-        .divisions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 2.5rem;
-        }
-        
-        .division-card {
-            background: linear-gradient(135deg, #FFFCF9 0%, #F9F3EB 100%);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(212, 197, 185, 0.2);
-        }
-        
-        .division-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .card-image {
-            height: 250px;
-            overflow: hidden;
-            background: #E8DDD0;
-        }
-        
-        .card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        
-        .division-card:hover .card-image img {
-            transform: scale(1.05);
-        }
-        
-        .card-content {
-            padding: 2.5rem;
-        }
-        
-        .card-content h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: #208B8D;
-            font-weight: 600;
-        }
-        
-        .card-content p {
-            color: #555;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-        
-        .card-focus {
-            background: rgba(32, 139, 141, 0.05);
-            padding: 1rem;
-            border-radius: 6px;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            color: #2C2C2C;
-        }
-        
-        .card-link {
-            color: #208B8D;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-        
-        .card-link:hover {
-            color: #16696C;
-            transform: translateX(4px);
-        }
-        
-        /* CONTACT SECTION */
-        .contact-section {
-            background: linear-gradient(135deg, #C5B8A8 0%, #D4C5B9 100%);
-            text-align: center;
-            color: #FFFCF9;
-        }
-        
-        .contact-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            font-weight: 600;
-        }
-        
-        .contact-section p {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            font-weight: 300;
-        }
-        
-        .contact-link {
-            color: #FFFCF9;
-            text-decoration: none;
-            border-bottom: 2px solid #FFFCF9;
-            transition: all 0.3s ease;
-            font-weight: 600;
-        }
-        
-        .contact-link:hover {
-            color: #208B8D;
-            border-bottom-color: #208B8D;
-        }
-        
-        /* FOOTER */
-        footer {
-            background: #2C2C2C;
-            color: #FFFCF9;
-            text-align: center;
-            padding: 2rem;
-        }
-        
-        footer p {
-            font-weight: 300;
-            letter-spacing: 0.3px;
-        }
-        
-        footer p:last-child {
-            margin-top: 0.5rem;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-content p {
-                font-size: 1.1rem;
-            }
-            
-            nav a {
-                display: block;
-                margin: 0.5rem 0;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .divisions-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            section {
-                padding: 3rem 1rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>DNS Analyse: Google DKIM Record</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      color: #111827;
+      background: #f9fafb;
+      padding: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    h1, h2 {
+      color: #111827;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin-top: 2rem;
+    }
+    code {
+      background: #eef2ff;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      background: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+    th {
+      background: #f3f4f6;
+      font-weight: 600;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    .section-image {
+      width: 100%;
+      max-width: 900px;
+      border-radius: 14px;
+      margin: 18px 0;
+      display: block;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.18);
+    }
+    .badge-warning {
+      display: inline-block;
+      background: #fef3c7;
+      color: #92400e;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+    .note {
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      margin-top: 16px;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+  </style>
 </head>
 <body>
-    <!-- NAVIGATION -->
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#about">Over Ons</a>
-        <a href="#divisions">Divisies</a>
-        <a href="#contact">Contact</a>
-    </nav>
-    
-    <!-- HERO SECTION -->
-    <section class="hero-section" id="home">
-        <div class="hero-content">
-            <h1>🌍 RoJs & Partners</h1>
-            <p>Global Business Solutions</p>
-            <a href="#about" class="cta-button">Discover More</a>
-        </div>
-    </section>
-    
-    <!-- ABOUT SECTION -->
-    <section class="about-section" id="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>About RoJs & Partners</h2>
-                    <p><strong>RoJs & Partners Holding LLC</strong> is a dynamic, international group headquartered in Wyoming, USA, with deep operational roots across Europe.</p>
-                    <p>We deliver tailored solutions across seven specialized divisions, serving clients throughout Europe and beyond.</p>
-                    <p><strong>We specialize in:</strong></p>
-                    <ul style="margin-left: 1.5rem; margin-top: 1rem;">
-                        <li style="margin-bottom: 0.5rem;">Global Operations & Consulting</li>
-                        <li style="margin-bottom: 0.5rem;">Travel & Wellness Experiences</li>
-                        <li style="margin-bottom: 0.5rem;">Medical Care & Healthcare Services</li>
-                        <li style="margin-bottom: 0.5rem;">Sustainable Agriculture & BioGrowth Solutions</li>
-                        <li style="margin-bottom: 0.5rem;">Advanced Security Technologies</li>
-                        <li style="margin-bottom: 0.5rem;">Energy Infrastructure & Networks</li>
-                        <li>Artificial Intelligence & Data Integrity</li>
-                    </ul>
-                </div>
-                <div class="about-image">
-                    <img src="https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg?auto=compress&cs=tinysrgb&w=500&q=80" alt="RoJs & Partners Team">
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- DIVISIONS SECTION -->
-    <section class="divisions-section" id="divisions">
-        <div class="container">
-            <h2 class="section-title">Our Seven Specialized Divisions</h2>
-            
-            <div class="divisions-grid">
-                <!-- GLOBAL OPERATIONS -->
-                <div class="division-card">
-                    <div class="card-image">
-                        <img src="https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg?auto=compress&cs=tinysrgb&w=500&q=80" alt="Global Operations">
-                    </div>
-                    <div class="card-content">
-                        <h3>🏢 Global Operations</h3>
-                        <p>Expert consulting and management services across Europe and the world.</p>
-                        <div class="card-focus"><strong>Focus:</strong> Infrastructure, international markets, project coordination</div>
-                        <a href="mailto:Info@rojsandpartners.com" class="card-link">📧 Get in Touch</a>
-                    </div>
-                </div>
-                
-                <!-- TRAVEL & WELLNESS -->
-                <div class="division-card">
-                    <div class="card-image">
-                        <img src="https://images.pexels.com/photos/3764687/pexels-photo-3764687.jpeg?auto=compress&cs=tinysrgb&w=500&q=80" alt="Travel & Wellness">
-                    </div>
-                    <div class="card-content">
-                        <h3>✈️ Travel & Wellness</h3>
-                        <p>Curated retreats and wellness journeys for transformation and growth.</p>
-                        <div class="card-focus"><strong>Focus:</strong> Luxury retreats, team building, wellness programs</div>
-                        <a href="mailto:Info@rojsandpartners.com" class="card-link">📧 Get in Touch</a>
-                    </div>
-                </div>
-                
-                <!-- MEDICAL CARE -->
-                <div class="division-card">
-                    <div class="card-image">
-                        <img src="https://images.pexels.com/photos/4167541/pexels-photo-4167541.jpeg?auto=compress&cs=tinysrgb&w=500&q=80" alt="Medical Care">
-                    </div>
-                    <div class="card-content">
-                        <h3>🏥 Medical Care</h3>
-                        <p>Professional healthcare services and specialized medical consulting.</p>
-                        <div class="card-focus"><strong>Focus:</strong> Oncology, hematology, nursing, healthcare staffing</div>
-                        <a href="mailto:Info@rojsandpartners.com" class="card-link">📧 Get in Touch</a>
-                    </div>
-                </div>
-                
-                <!-- BIOGROWTH & AGRO -->
-                <div class="division-card">
-                    <div class="card-image">
-                        <img src="https://images.pexels.com/photos/5632648/pexels-photo-5632648.jpeg?auto=compress&cs=tinysrgb&w=500&q=80" alt="BioGrowth & Agro">
-                    </div>
-                    <div class="card-content">
-                        <h3>🌱 BioGrowth & Agro</h3>
-                        <p>Sustainable agriculture and biodiversity restoration for a regenerative future.</p>
-                        <div class="card-focus"><strong>Focus:</strong> Specialty crops, biomass, carbon credits, ecosystem restoration</div>
-                        <a href="mailto:Info@rojsandpartners.com" class="card-link">📧 Get in Touch</a>
-                    </div>
-                </div>
-                
-                <!-- SECURITY TECHNOLOGIES -->
-                <div class="division-card">
-                    <div class="card-image">
-                        <img src="https://images.pexels.com/photos/3760258/pexels-photo-3760258.jpeg?auto=compress&cs=tinysrgb&w=500&q=80" alt="Security Technologies">
-                    </div>
-                    <div class="card-content">
-                        <h3>🔒 Security Technologies</h3>
-                        <p>Advanced security solutions and professional services to protect.</p>
-                        <div class="card-focus"><strong>Focus:</strong> Physical security, cybersecurity, 24/7 monitoring</div>
-                        <a href="mailto:Info@rojsandpartners.com" class="card-link">📧 Get in Touch</a>
-                    </div>
-                </div>
-                
-                <!-- ENERGY NETWORKS -->
-                <div class="division-card">
-                    <div class="card-image">
-                        <img src="https://images.pexels.com/photos/3962286/pexels-photo-3962286.jpeg?auto=compress&cs=tinysrgb&w=500&q=80" alt="Energy Networks">
-                    </div>
-                    <div class="card-content">
-                        <h3>⚡ Energy Networks</h3>
-                        <p>Sustainable energy infrastructure and innovative solutions.</p>
-                        <div class="card-focus"><strong>Focus:</strong> Grid management, renewable integration, energy storage</div>
-                        <a href="mailto:Info@rojsandpartners.com" class="card-link">📧 Get in Touch</a>
-                    </div>
-                </div>
-                
-                <!-- AI & INTEGRITY -->
-                <div class="division-card">
-                    <div class="card-image">
-                        <img src="https://images.pexels.com/photos/3945683/pexels-photo-3945683.jpeg?auto=compress&cs=tinysrgb&w=500&q=80" alt="AI & Integrity">
-                    </div>
-                    <div class="card-content">
-                        <h3>🤖 AI & Integrity Systems</h3>
-                        <p>Artificial intelligence and data integrity solutions for truth validation.</p>
-                        <div class="card-focus"><strong>Focus:</strong> Fact-checking, credential verification, data audits</div>
-                        <a href="mailto:Info@rojsandpartners.com" class="card-link">📧 Get in Touch</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- CONTACT SECTION -->
-    <section class="contact-section" id="contact">
-        <div class="container">
-            <h2>Get in Touch</h2>
-            <p>Ready to work with us?</p>
-            <p><a href="mailto:Info@rojsandpartners.com" class="contact-link">📧 Info@rojsandpartners.com</a></p>
-            <p style="margin-top: 2rem; font-size: 0.95rem;">Or reach out to any division directly for specific inquiries.</p>
-        </div>
-    </section>
-    
-    <!-- FOOTER -->
-    <footer>
-        <p>&copy; 2026 RoJs & Partners Holding LLC. All rights reserved.</p>
-        <p>Wyoming, USA | Amsterdam, Netherlands</p>
-    </footer>
+
+  <h1>DNS Analyse: Google DKIM Record</h1>
+
+  <!-- GLOBAL OPERATIONS / BUSINESS -->
+  <img
+    class="section-image"
+    src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80"
+    alt="Modern team in een zakelijke meeting in een lichte kantooromgeving"
+  />
+
+  <h2>Wat betekent dit?</h2>
+  <p>
+    Dit is een <strong>DKIM (DomainKeys Identified Mail)</strong> record voor
+    <strong>Google Workspace</strong>.
+  </p>
+
+  <p>Het zorgt ervoor dat je e-mails:</p>
+  <ul>
+    <li>✅ Niet in de spam belanden (verifieert dat jij de echte afzender bent)</li>
+    <li>✅ Veilig zijn (voorkomt spoofing/vervalsing)</li>
+    <li>✅ Betrouwbaar zijn voor Gmail, Outlook, etc.</li>
+  </ul>
+
+  <!-- TRAVEL & WELLNESS -->
+  <img
+    class="section-image"
+    src="https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=1600&q=80"
+    alt="Rustige wellness retreat met spa en natuurlijke materialen"
+  />
+
+  <h2>⚠️ Belangrijk: niet verwijderen!</h2>
+  <span class="badge-warning">Critical e‑mail beveiliging</span>
+  <p><strong>Als je dit verwijdert:</strong></p>
+  <ul>
+    <li>Je e-mails (van <code>info@rojsandpartners.com</code>) gaan sneller naar spam‑folders.</li>
+    <li>Google Workspace mail werkt minder goed.</li>
+    <li>Je domeinreputatie daalt merkbaar.</li>
+  </ul>
+
+  <!-- MEDICAL CARE -->
+  <img
+    class="section-image"
+    src="https://images.unsplash.com/photo-1535916707207-35f97e715e1b?auto=format&fit=crop&w=1600&q=80"
+    alt="Moderne medische professional in een klinische omgeving"
+  />
+
+  <h2>Technische details</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Veld</th>
+        <th>Waarde</th>
+        <th>Uitleg</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Host</strong></td>
+        <td><code>google._domainkey</code></td>
+        <td>Specifiek subdomein voor Google Workspace mail‑services.</td>
+      </tr>
+      <tr>
+        <td><strong>Type</strong></td>
+        <td><code>TXT</code></td>
+        <td>Tekstrecord dat gebruikt wordt voor e‑mailverificatie.</td>
+      </tr>
+      <tr>
+        <td><strong>Data</strong></td>
+        <td><code>v=DKIM1; k=rsa; p=...</code></td>
+        <td>De publieke sleutel waarmee ontvangende mailservers je DKIM‑handtekening controleren.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- BIOGROWTH & AGRO -->
+  <img
+    class="section-image"
+    src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=80"
+    alt="Groene landbouwvelden als symbool voor groei en stabiliteit"
+  />
+
+  <!-- SECURITY / CYBERSECURITY -->
+  <img
+    class="section-image"
+    src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=1600&q=80"
+    alt="Digitale cybersecurity lock op blauw technologisch netwerk"
+  />
+
+  <!-- ENERGY / DUURZAME ENERGIE -->
+  <img
+    class="section-image"
+    src="https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=1600&q=80"
+    alt="Zonnepanelen onder een heldere lucht als duurzame energiebron"
+  />
+
+  <!-- AI & INTEGRITY -->
+  <img
+    class="section-image"
+    src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1600&q=80"
+    alt="Abstracte visualisatie van kunstmatige intelligentie en data"
+  />
+
+  <h2>Conclusie</h2>
+  <p>
+    <strong>Laat dit record staan!</strong> Het is essentieel voor je Google Workspace e‑mailfunctionaliteit en je
+    domeinreputatie.
+  </p>
+  <p>
+    Dit DKIM‑record heeft geen invloed op je website‑hosting via GitHub Pages, dus je kunt je website‑DNS
+    (<code>CNAME</code>/<code>ALIAS</code>) er gewoon naast instellen zonder problemen.
+  </p>
+
+  <div class="note">
+    Tip: wijzig alleen de waarde <code>p=...</code> als je in Google Admin Console een nieuwe DKIM‑sleutel
+    genereert; de hostnaam <code>google._domainkey</code> blijft dan gelijk.
+  </div>
+
 </body>
 </html>
